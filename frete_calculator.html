@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+
+	<style type="text/css">
+	#tabela { float: left;}
+	#form { float:left;}
+	#mapa { float:left;}
+	</style>
+
+	<script type="text/javascript">
+		var precos = [{"id":"1","vol_min":"0","vol_max":"5","km_min":"0","km_max":"5","custo":"6.500","total":"23.985"},{"id":"2","vol_min":"0","vol_max":"5","km_min":"6","km_max":"10","custo":"7.000","total":"28.290"},{"id":"3","vol_min":"0","vol_max":"5","km_min":"10","km_max":"15","custo":"7.500","total":"32.595"},{"id":"4","vol_min":"0","vol_max":"5","km_min":"15","km_max":"20","custo":"8.000","total":"36.690"},{"id":"5","vol_min":"0","vol_max":"5","km_min":"20","km_max":"25","custo":"8.500","total":"41.205"},{"id":"6","vol_min":"0","vol_max":"5","km_min":"25","km_max":"30","custo":"9.000","total":"45.510"},{"id":"7","vol_min":"0","vol_max":"5","km_min":"30","km_max":"35","custo":"12.700","total":"49.815"},{"id":"8","vol_min":"0","vol_max":"5","km_min":"35","km_max":"40","custo":"13.200","total":"54.120"},{"id":"9","vol_min":"0","vol_max":"5","km_min":"40","km_max":"45","custo":"13.700","total":"62.730"},{"id":"10","vol_min":"0","vol_max":"5","km_min":"45","km_max":"50","custo":"14.200","total":"67.035"},{"id":"11","vol_min":"0","vol_max":"5","km_min":"50","km_max":"55","custo":"17.700","total":"70.110"},{"id":"12","vol_min":"0","vol_max":"5","km_min":"55","km_max":"60","custo":"15.200","total":"74.415"},{"id":"13","vol_min":"6","vol_max":"10","km_min":"0","km_max":"5","custo":"6.500","total":"28.905"},{"id":"14","vol_min":"6","vol_max":"10","km_min":"6","km_max":"10","custo":"7.000","total":"33.210"},{"id":"15","vol_min":"6","vol_max":"10","km_min":"10","km_max":"15","custo":"7.500","total":"37.515"},{"id":"16","vol_min":"6","vol_max":"10","km_min":"15","km_max":"20","custo":"8.000","total":"41.820"},{"id":"17","vol_min":"6","vol_max":"10","km_min":"20","km_max":"25","custo":"8.500","total":"46.125"},{"id":"18","vol_min":"6","vol_max":"10","km_min":"25","km_max":"30","custo":"9.000","total":"50.430"},{"id":"19","vol_min":"6","vol_max":"10","km_min":"30","km_max":"35","custo":"12.700","total":"54.735"},{"id":"20","vol_min":"6","vol_max":"10","km_min":"35","km_max":"40","custo":"13.200","total":"59.040"},{"id":"21","vol_min":"6","vol_max":"10","km_min":"40","km_max":"45","custo":"13.700","total":"67.650"},{"id":"22","vol_min":"6","vol_max":"10","km_min":"45","km_max":"50","custo":"14.200","total":"71.955"},{"id":"23","vol_min":"6","vol_max":"10","km_min":"50","km_max":"55","custo":"17.700","total":"75.030"},{"id":"24","vol_min":"6","vol_max":"10","km_min":"55","km_max":"60","custo":"15.200","total":"79.335"},{"id":"25","vol_min":"11","vol_max":"21","km_min":"0","km_max":"5","custo":"6.500","total":"41.205"},{"id":"26","vol_min":"11","vol_max":"21","km_min":"6","km_max":"10","custo":"7.000","total":"45.510"},{"id":"27","vol_min":"11","vol_max":"21","km_min":"10","km_max":"15","custo":"7.500","total":"49.815"},{"id":"28","vol_min":"11","vol_max":"21","km_min":"15","km_max":"20","custo":"8.000","total":"54.120"},{"id":"29","vol_min":"11","vol_max":"21","km_min":"20","km_max":"25","custo":"8.500","total":"58.425"},{"id":"30","vol_min":"11","vol_max":"21","km_min":"25","km_max":"30","custo":"9.000","total":"62.730"},{"id":"31","vol_min":"11","vol_max":"21","km_min":"30","km_max":"35","custo":"12.700","total":"67.035"},{"id":"32","vol_min":"11","vol_max":"21","km_min":"35","km_max":"40","custo":"13.200","total":"71.340"},{"id":"33","vol_min":"11","vol_max":"21","km_min":"40","km_max":"45","custo":"13.700","total":"79.950"},{"id":"34","vol_min":"11","vol_max":"21","km_min":"45","km_max":"50","custo":"14.200","total":"84.255"},{"id":"35","vol_min":"11","vol_max":"21","km_min":"50","km_max":"55","custo":"17.700","total":"87.330"},{"id":"36","vol_min":"11","vol_max":"21","km_min":"55","km_max":"60","custo":"15.200","total":"91.635"},{"id":"37","vol_min":"21","vol_max":"25","km_min":"0","km_max":"5","custo":"6.500","total":"47.355"},{"id":"38","vol_min":"21","vol_max":"25","km_min":"6","km_max":"10","custo":"7.000","total":"51.660"},{"id":"39","vol_min":"21","vol_max":"25","km_min":"10","km_max":"15","custo":"7.500","total":"55.965"},{"id":"40","vol_min":"21","vol_max":"25","km_min":"15","km_max":"20","custo":"8.000","total":"60.270"},{"id":"41","vol_min":"21","vol_max":"25","km_min":"20","km_max":"25","custo":"8.500","total":"64.575"},{"id":"42","vol_min":"21","vol_max":"25","km_min":"25","km_max":"30","custo":"9.000","total":"68.880"},{"id":"43","vol_min":"21","vol_max":"25","km_min":"30","km_max":"35","custo":"12.700","total":"73.185"},{"id":"44","vol_min":"21","vol_max":"25","km_min":"35","km_max":"40","custo":"13.200","total":"77.490"},{"id":"45","vol_min":"21","vol_max":"25","km_min":"40","km_max":"45","custo":"13.700","total":"86.100"},{"id":"46","vol_min":"21","vol_max":"25","km_min":"45","km_max":"50","custo":"14.200","total":"90.405"},{"id":"47","vol_min":"21","vol_max":"25","km_min":"50","km_max":"55","custo":"17.700","total":"93.480"},{"id":"48","vol_min":"21","vol_max":"25","km_min":"55","km_max":"60","custo":"15.200","total":"97.785"}];
+		var i = 0;
+		var distAux;
+		var volAtual;
+		var volAux;
+		
+		function calcular(){
+			var distancia  = parseInt(document.getElementById("slcDistancia").value);
+			var volumes  = parseInt(document.getElementById("txtVolumes").value);
+			/** se houver algum volume médio então acrescenta + 20 euros */
+			var isVolMedio = document.getElementById("chbTemVolMedio").checked == true;
+			var total = 0.0;
+			var i;// iterator
+
+			if (isVolMedio) { total += 20; }
+			
+			for (i = 0; i< precos.length; i++){
+				var preco = precos[i];
+				
+				if (volumes > parseInt(preco.vol_min) && volumes <= parseInt(preco.vol_max)
+					&& distancia > parseInt(preco.km_min) && distancia <= parseInt(preco.km_max)
+					) {
+					total += Number(preco.total);
+					/*document.getElementById("message").innerHTML = "Volumes: " + parseInt(volumes)
+					+ "<br>Distância: " + parseInt(distancia)
+					+ "<br>Total: " + preco.total
+					+ "<br>Total: " + preco.vol_min + "-" + preco.vol_max;*/
+				}//fim se
+			}//fim for
+
+			//se houver mais volumes do que o necessário direciona a um consultor
+			if (volumes > parseInt(precos[precos.length-1].vol_max)){
+				document.getElementById("message").innerHTML = 
+					"Você selecionou um número de volumes indisponível" 
+						+"<br> para transporte, contate um consultor para mais informações."
+						+ "<br> a quantidade de volumes máximo é " + precos[precos.length-1].vol_max 
+						;
+				total = "indisponível";
+			}
+			
+			document.getElementById("txtPreco").innerHTML = total;
+			
+		}//fim function
+       </script>		
+</head>
+<body>
+	
+	<div id="tabela"></div>
+	<div id="mapa" style="width: auto">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.8706799150814!2d-48.56958268617415!3d-20.552471463271345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94bb852f6a6cb055%3A0x628f64bf8fdc8ff4!2sR.+Dez%2C+71+-+Centro%2C+Barretos+-+SP!5e0!3m2!1spt-BR!2sbr!4v1466804155020" width="300" height="400" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+		</div>
+	<form id="form">
+		<h3>Faça sua simulação</h3>
+		<div id="message" style="color: red"></div>
+		<input type="checkbox" id="chbTemVolMedio" name="chbTemVolMedio" /> Tem volume médio(+ $20.00)
+		<br>
+		<label for="txtVolumes" >Volumes:</label>
+		<input type="text" id="txtVolumes" name="txtVolumes" />
+		<br>
+		<label for="txtDistancia">Distância:</label>
+		<select id="slcDistancia"></select>
+		<br>
+		<label for="txtPreco">Valor total:</label>
+		<label id="txtPreco"></label>
+		<br>
+		<input type="button" id="btnCalcular" onclick="calcular();" name="btnCalcular" value="Calcular frete"/>
+	</form>
+	
+		<script type="text/javascript">
+			var i = 0;
+	
+			/** inicializa input para distância */
+			for (i =1; i<= parseInt(precos[precos.length-1].km_max);i++){
+				
+				document.getElementById("slcDistancia").innerHTML += "<option valule="+i+">"+i+" KM</option>\n";
+			}
+			
+			var distAux;
+			var tabela = document.getElementById("tabela");
+			console.log(tabela);
+			var volAtual;
+			var volAux;
+			i =0;
+	
+			var tblstr = ("<table border=\"solid\">");
+	        for (i = 0; i<precos.length;i++){
+	            var preco = precos[i];
+	            volAtual = preco.vol_min + "-" + preco.vol_max;
+	            if (volAtual != volAux){
+	                //escreve um cabeçlho
+	            	tblstr += ("<tr><th colspan=\"3\">"+volAtual+"</th></tr>\n");
+	            	tblstr += ("<tr>\n");
+	    			tblstr += ("<th>Distância (km)</th><th>Custo (Euro)</th><th>Total</th>\n");
+	            	tblstr += ("</tr>\n");
+	            	volAux = volAtual;
+	            }
+				tblstr += ("<tr>\n");
+	        	tblstr += ("<td>"+preco.km_min+"-"+preco.km_max+"</td>\n");
+	        	tblstr += ("<td>"+preco.custo+"</td>\n");
+	        	tblstr += ("<td>"+preco.total+"</td>\n");
+	        	tblstr += ("</tr>\n");
+	        }
+	        tblstr += ("</table>\n");
+	        tabela.innerHTML = tblstr;
+		</script>
+	
+</body>
+</html>
