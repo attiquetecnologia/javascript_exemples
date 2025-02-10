@@ -22,24 +22,43 @@
         }
     </style>
     <div class="control">
-        <button>&uarr;</button>
-        <button>&larr;</button>
+        <button onclick="onBtnUp();">&uarr;</button>
+        <button onclick="onBtnLeft();">&larr;</button>
         <button onclick="onBtnRight();">&rarr;</button>
         <button onclick="onBtnDown();">&darr;</button>
         <button onclick="onBtnJump()">Pular</button>
     </div>
     <hr>
-    <div class="canva">
+    <div id="canva" class="canva">
         <img src="coragem.jfif" id="box" class="box" style="left: 0px; top: 200px;"></div>
     </div>
 
     <script>
+        document.addEventListener("keypress", (event)=>{
+            
+        });
+        function onBtnLeft(){
+            box = document.getElementById("box");
+            let posicao_atual = box.style.left;
+            posicao_atual = parseInt(posicao_atual);
+            console.log("Posicao atual", posicao_atual);
+            box.style.left = posicao_atual-10+"px";
+            console.log("Nova posição", posicao_atual);
+        }
         function onBtnRight(){
             box = document.getElementById("box");
             let posicao_atual = box.style.left;
             posicao_atual = parseInt(posicao_atual);
             console.log("Posicao atual", posicao_atual);
             box.style.left = posicao_atual+10+"px";
+            console.log("Nova posição", posicao_atual);
+        }
+        function onBtnUp(){
+            box = document.getElementById("box");
+            let posicao_atual = box.style.top;
+            posicao_atual = parseInt(posicao_atual);
+            console.log("Posicao atual", posicao_atual);
+            box.style.top = posicao_atual-10+"px";
             console.log("Nova posição", posicao_atual);
         }
         function onBtnDown(){
