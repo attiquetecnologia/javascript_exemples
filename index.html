@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo</title>
+</head>
+<body>
+    <style>
+        
+        .canva {
+            background-color: yellowgreen;
+            height: 350px;
+            padding: 10px;
+            
+        }
+        .box {
+            height: 150px;
+            width: 100px;
+            /* background-image: url('coragem.jfif'); */
+            position: relative;
+        }
+    </style>
+    <div class="control">
+        <button>&uarr;</button>
+        <button>&larr;</button>
+        <button onclick="onBtnRight();">&rarr;</button>
+        <button onclick="onBtnDown();">&darr;</button>
+        <button onclick="onBtnJump()">Pular</button>
+    </div>
+    <hr>
+    <div class="canva">
+        <img src="coragem.jfif" id="box" class="box" style="left: 0px; top: 200px;"></div>
+    </div>
+
+    <script>
+        function onBtnRight(){
+            box = document.getElementById("box");
+            let posicao_atual = box.style.left;
+            posicao_atual = parseInt(posicao_atual);
+            console.log("Posicao atual", posicao_atual);
+            box.style.left = posicao_atual+10+"px";
+            console.log("Nova posição", posicao_atual);
+        }
+        function onBtnDown(){
+            box = document.getElementById("box");
+            let posicao_atual = box.style.top;
+            posicao_atual = parseInt(posicao_atual);
+            console.log("Posicao atual", posicao_atual);
+            box.style.top = posicao_atual+10+"px";
+            console.log("Nova posição", posicao_atual);
+        }
+        function jumpStep(box){
+
+        }
+        function onBtnJump() {
+            const box = document.getElementById("box");
+            let posicao_atual = box.style.top; // Inicializa a posição atual
+            posicao_atual = parseInt(posicao_atual);
+            const altura_pulo = 50; // Altura do pulo em pixels
+            const duracao_pulo = 300; // Duração do pulo em milissegundos
+
+            // Função para realizar a animação do pulo
+            function animarPulo(altura, tempo) {
+                let inicio = null;
+
+                function step(timestamp) {
+                    if (!inicio) inicio = timestamp;
+                    const progresso = Math.min(1, (timestamp - inicio) / tempo);
+                    const movimento = altura * Math.sin(progresso * Math.PI / 2); // Função seno para suavizar o movimento
+                    box.style.top = posicao_atual - movimento + "px";
+
+                    if (progresso < 1) {
+                        requestAnimationFrame(step);
+                    } else {
+                        posicao_atual -= altura; // Atualiza a posição atual após o pulo
+                    }
+                }
+
+                requestAnimationFrame(step);
+            }
+
+            // Pulo para cima
+            animarPulo(altura_pulo, duracao_pulo / 2);
+
+            // Pulo para baixo (após o tempo de duração do pulo para cima)
+            setTimeout(() => {
+                animarPulo(-altura_pulo, duracao_pulo / 2);
+            }, duracao_pulo / 2);
+        }
+    </script>
+</body>
+</html>
