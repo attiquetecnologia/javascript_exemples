@@ -52,6 +52,9 @@
             console.log("Posicao atual", posicao_atual);
             box.style.left = posicao_atual+10+"px";
             console.log("Nova posição", posicao_atual);
+            if (posicao_atual+10 == 860){
+                alert("Parabéns você ganho!!");
+            }
         }
         function onBtnUp(){
             box = document.getElementById("box");
