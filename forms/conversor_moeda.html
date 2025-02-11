@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação Exemplo</title>
+</head>
+<body>
+    <form>
+        <h3>Conversor de moeda</h3>
+        <label>Real</label>
+        <input type="number" step="0.1" name="real" id="real" />
+        <p>Para</p>
+        <label>Dolar</label>
+        <input type="number" step="0.1" name="dolar" id="dolar" disabled />
+        <br><br>
+        <button type="button" onclick="converter();">Converter</button>
+    </form>
+
+    <script>
+        function converter(){
+            // primeiro sempre inicializar variáveis
+            // Usamos value para pegar o valor do input
+            // Caso contrário acessamos toda a tag input
+            let real = document.getElementById("real").value;
+            let dolar = document.getElementById("dolar");
+            let aliquota = 5.82; //aliquota de conversão
+
+            //lógica de conversão
+            dolar.value = real * aliquota; //altera valor do input
+            //alert(dolar); //exibe o objeto em um alert
+        }
+    </script>
+</body>
+</html>

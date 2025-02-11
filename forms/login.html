@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <form>
+        <h3>Login</h3>
+        <h1 id="msg"></h1>
+        <label>Usuário</label>
+        <input type="email" name="usuario" id="usuario" required />
+        <p></p>
+        <label>Senha</label>
+        <input type="password" name="senha" id="senha" required/>
+        <br><br>
+        <button type="button" onclick="login();">Login</button>
+    </form>
+
+    <script>
+        function login(){
+
+            // primeiro sempre inicializar variáveis
+            // Vamos acessa toda a tag input
+            let usuario = document.getElementById("usuario");
+            let senha = document.getElementById("senha");
+            let msg = document.getElementById("msg");
+            //lógica de login
+            if (usuario=='admin@admin.com' && senha=='admin'){
+                msg.innerHTML = 'Usuário Logado!';
+                alert('Usuário Logado!');
+            } else{
+                msg.innerHTML = 'Erros no formulário!';
+                alert('Erros no formulário!');
+            }
+        }
+    </script>
+</body>
+</html>

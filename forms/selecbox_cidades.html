@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cidades</title>
+</head>
+<body  onload="load_estados();">
+    <form>
+        <h3>Escolha sua cidade</h3>
+        <label>Estado</label>
+        <select id="estado" name="estado" onchange="load_cidades();">
+            <option value="">Escolha um estado</option>
+        </select>
+        <p></p>
+        <label>Cidade</label>
+        <select id="cidade" name="cidade">
+            <option value="">Escolha um estado</option>
+        </select>
+    </form>
+
+    <script>
+        var cidades = {
+            "Barretos": "SP"
+            ,"Tupaciguara": "MG"
+            ,"Catalão": "GO"
+            ,"Itumbiara": "GO"
+            ,"Diadema": "SP"
+            ,"Cabo Frio": "RJ"
+        }
+        function load_estados(){
+            let estados = ["SP", "RJ", "GO", "MG"];
+            let box = document.getElementById("estado");
+            
+            for (e of estados){
+                let op = document.createElement("option");
+                op.innerHTML = e;
+                box.appendChild(op);
+            }//endfor
+        }//endload
+
+        function load_cidades(){
+            let estado = document.getElementById("estado").value; 
+            let box = document.getElementById("cidade");  
+            box.innerHTML=null;//limpa estados antigos
+
+            for (c in cidades){
+                if (cidades[c]==estado){
+                    let op = document.createElement("option");
+                    op.innerHTML = c;
+                    box.appendChild(op);
+                }//endif
+            }//endfor
+        }//end load_cidades
+    </script>
+</body>
+</html>
