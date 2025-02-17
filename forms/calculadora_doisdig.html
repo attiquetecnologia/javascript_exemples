@@ -31,31 +31,35 @@
         </form>
     </div>
     <script>
-        document.getElementById("num1").addEventListener("change", () => {
-            console.log(this);
-        });
-        document.querySelector("input[name=operador]").addEventListener("change", () => {
-            alert(this);
-        });
+        // Por serem vários radiobuttons precisamos usar queryselector
+        // caso contrário seria preciso fazer um id para cada input
+        // aqui criamos um evento para escutar quando o usuário escolhe uma operação
+        document.querySelectorAll("input[name=operador]").forEach( function(checkbox){ //podemos subistituir function por (operador)=>
+            // Repare que criamos uma função implícita ou anônima dentro do evento
+            checkbox.addEventListener("change", (event) => {
+            operador = event.target.value;
+            // console.log(operador);
+            // alert(operador);
+            });
+        })
 
-        let resultado = document.getElementById("resultado");
+        // lembre-se usamos var em variáveis globais
+        var resultado = document.getElementById("resultado");
         
         function igual(){
+            //lembre-se usamos let em variáveis locais
             let num1 = document.getElementById("num1").value;
             let num2 = document.getElementById("num2").value;
-            // é mais fácil pegar o valor pelo nome, 
-            // caso contrário seria preciso fazer um id para cada input
-            let operador = document.querySelector("input[name=operador]").value;
             // verifique se os dois números são inteiros antes
             // lógica para validar aqui
             
-            alert(operador)
+            console.log(document.querySelectorAll("input[name=operador]"));
             if (operador==null) { alert("Escolha uma operação"); }
 
             // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/switch
             switch (operador){ //pesquise sobre switch-case javascript
                 case "+":
-                    soma();
+                    soma(num1, num2);
                     break;
                 case "?":
                     //qual função
@@ -64,13 +68,13 @@
             }//fim case
         }
 
-        function soma(){
+        function soma(num1, num2){
             // lógica de adição
             let soma = num1 + num2;
             //resultado.innerHTML= ??? adiciona resultado
             resultado.innerHTML= soma;
         }
-        function subtracao(){
+        function subtracao(num1, num2){
             // lógica de subtração e exibição
         }
     </script>
