@@ -43,7 +43,7 @@
             let estados = ["SP", "RJ", "GO", "MG", "SC", "PB", "MT", "PR", "DF"];
             let box = document.getElementById("estado");
             
-            for (e of estados){
+            for (e of estados.sort()){
                 let op = document.createElement("option");
                 op.innerHTML = e;
                 box.appendChild(op);

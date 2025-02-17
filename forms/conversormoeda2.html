@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Validação Exemplo</title>
+    <title>Conversor de moedas 2.0</title>
 </head>
 <body>
+    <h1>Conversor de Moedas 2.0</h1>
+
     <form>
-        <h3>Conversor de moeda</h3>
-        <label>Dolar</label>
+        <select id="aliquota">
+            <option>Escolha uma moeda</option>
+            <option value="5.75">Dolar</option>
+            <option value="5.96">Euro</option>
+            <option value="">Bitcoin</option>
+        </select>
         <input type="number" step="0.1" min="0" name="dolar" id="dolar"  onchange="converter();"/>
         <p>Para</p>
         <label>Real</label>
@@ -25,7 +31,7 @@
             // Caso contrário acessamos toda a tag input
             let real = document.getElementById("real");
             let dolar = document.getElementById("dolar").value;
-            let aliquota = 5.82; //aliquota de conversão
+            let aliquota = document.getElementById("aliquota").value; //aliquota de conversão
 
             //lógica de conversão
             real.value = dolar * aliquota; //altera valor do input

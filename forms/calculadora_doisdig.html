@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de dois digitos</title>
+</head>
+<body>
+    <div class="canva">
+        <form method="dialog">
+            <label>Número 1</label>
+            <input type="number" step="1" id="num1" required/>
+            <br>
+            <label>Número 2</label>
+            <input type="number" step="1" id="num2" required/>
+            <br>
+            <h3 id="resultado"></h3>
+            <br>
+            <div class="botoes">
+                <!-- quando falamos de radiobuttons todos precisam ter o mesmo nome-->
+                <!-- preste atenção no value que será enviado -->
+                <input type="radio" name="operador" value="+" />+<br>
+                <input type="radio" name="operador" />-<br>
+                <input type="radio" name="operador" value="*" />*<br>
+                <input type="radio" name="operador" />/<br>
+                <input type="radio" name="operador" />raiz<br>
+                <input type="radio" name="operador" />%<br>
+                
+                <button onclick="igual()">=</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.getElementById("num1").addEventListener("change", () => {
+            console.log(this);
+        });
+        document.querySelector("input[name=operador]").addEventListener("change", () => {
+            alert(this);
+        });
+
+        let resultado = document.getElementById("resultado");
+        
+        function igual(){
+            let num1 = document.getElementById("num1").value;
+            let num2 = document.getElementById("num2").value;
+            // é mais fácil pegar o valor pelo nome, 
+            // caso contrário seria preciso fazer um id para cada input
+            let operador = document.querySelector("input[name=operador]").value;
+            // verifique se os dois números são inteiros antes
+            // lógica para validar aqui
+            
+            alert(operador)
+            if (operador==null) { alert("Escolha uma operação"); }
+
+            // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/switch
+            switch (operador){ //pesquise sobre switch-case javascript
+                case "+":
+                    soma();
+                    break;
+                case "?":
+                    //qual função
+                    break; //break evita não deixa cair nos outros cases
+                default: break; //default é acionado quando não passou pelos outros
+            }//fim case
+        }
+
+        function soma(){
+            // lógica de adição
+            let soma = num1 + num2;
+            //resultado.innerHTML= ??? adiciona resultado
+            resultado.innerHTML= soma;
+        }
+        function subtracao(){
+            // lógica de subtração e exibição
+        }
+    </script>
+</body>
+</html>

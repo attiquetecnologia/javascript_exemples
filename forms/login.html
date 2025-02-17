@@ -23,10 +23,11 @@
 
             // primeiro sempre inicializar variáveis
             // Vamos acessa toda a tag input
-            let usuario = document.getElementById("usuario");
-            let senha = document.getElementById("senha");
+            let usuario = document.getElementById("usuario").value;
+            let senha = document.getElementById("senha").value;
             let msg = document.getElementById("msg");
             //lógica de login
+            console.log(usuario, senha);
             if (usuario=='admin@admin.com' && senha=='admin'){
                 msg.innerHTML = 'Usuário Logado!';
                 alert('Usuário Logado!');
