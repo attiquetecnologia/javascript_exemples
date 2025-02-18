@@ -37,10 +37,10 @@
     </style>
 </head>
 <body>
-    <div class="calculador">
+    <div class="calculadora">
         
         <label>Número</label>
-        <input type="text" id="display" class="displei" disabled/>
+        <input type="text" id="display" class="display" disabled/>
         <br>
         <div class="botoes">
             <button onclick="adicionarValor('7')">7</button>
@@ -48,10 +48,10 @@
             <button onclick="adicionarValor('9')">9</button>
             <button onclick="adicionarValor('/')">/</button>
             <br>
-            <button onclick="adicionarValor('')">4</button>
+            <button onclick="adicionarValor('4')">4</button>
             <button onclick="adicionarValor('5')">5</button>
             <button onclick="adicionarValor('6')">6</button>
-            <button onclick="adicionarValor('')">*</button>
+            <button onclick="adicionarValor('*')">*</button>
             <br>
             <button onclick="adicionarValor('1')">1</button>
             <button onclick="adicionarValor('2')">2</button>
@@ -63,12 +63,22 @@
             <button onclick="calcularResultado()">=</button>
             <button onclick="adicionarValor('+')">+</button>
             <br>
-            <button onclick="limpar_Display()" style="width: 90%">C</button>
+            <button onclick="limparDisplay()" style="width: 90%">C</button>
         </div>
     </div>
     <script>
         function adicionarValor(valor) {
             document.getElementById("display").value += valor;
+        }
+        function calcularResultado() {
+            try {
+                document.getElementById("display").value = eval(document.getElementById("display").value);
+            } catch (e) {
+                alert("Erro na expressão!");
+            }
+        }
+        function limparDisplay() {
+            document.getElementById("display").value = "";
         }
     </script>
 </body>
