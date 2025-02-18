@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Pontos</title>
+    
+    <style>
+        .validador {
+            color: orangered;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Registro de Pontos</h1>
+    <form method="dialog">
+        <label for="data_registro">Data do Registro</label>
+        <input type="date" name="data_registro" id="data_registro" min="2025-01-01" required/>
+        <br>
+        <label for="atividade">Atividade</label>
+        <input type="text" name="atividade" id="atividade" placeholder="Atividade" onblur="valida_atividade(this.value, 'val_atividade');" required/>
+        <p id="val_atividade" class="validador"></p>
+        <br>
+        <label for="pontuacao">Pontos</label>
+        <input
+            type="range"
+            name="pontuacao"
+            id="pontuacao"
+            min="0"
+            max="100"
+            step="1"
+            value="50" />
+            <output class="pontuacao-output" for="pontuacao"></output>
+        <br>
+        <button>Salvar</button>
+    </form>
+
+
+    <script>
+
+        // Recebe o valor do input (this.value) e id do validador
+        function valida_atividade(value, validador_id){
+            
+            let validador = document.getElementById(validador_id);
+            // Se nome só tem uma parte...
+            if ( value.length <=5 ){
+                console.log(value);
+                validador.innerHTML = "Digite ao menos uma sentença"
+            } else { validador.innerHTML = ""; } //se não apaga msg erro 
+        }//fim valida_nome
+
+        const pontuacao = document.querySelector("#pontuacao");
+        const output = document.querySelector(".pontuacao-output");
+
+        output.textContent = pontuacao.value;
+
+        pontuacao.addEventListener("input", () => {
+            output.textContent = pontuacao.value;
+        });
+
+    </script>
+</body>
+</html>

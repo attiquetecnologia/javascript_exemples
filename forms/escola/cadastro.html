@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Aluno</title>
+    
+    <style>
+        .validador {
+            color: orangered;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cadastro de Aluno</h1>
+    <form method="dialofg" onsubmit="Checkfiles(this)">
+        <label for="nome">Nome Completo</label>
+        <input type="text" name="nome" id="nome" placeholder="Nome Completo" onblur="valida_nome(this.value, 'val_nome');" required/>
+        <p id="val_nome" class="validador"></p>
+        <br>
+        <label for="turma">Turma</label>
+        <input type="text" name="turma" id="turma" maxlength="10" onblur="valida_turma(this.value, 'val_turma');" required/>
+        <p id="val_turma" class="validador"></p>
+        <br>
+        <label for="foto">Foto</label>
+        <input type="file" name="foto" id="foto" accept="image/png, image/jpeg" multiple required/>
+        <p id="val_foto" class="validador"></p>
+        <br>
+        <button type="submit">Salvar</button>
+    </form>
+    
+    <script>
+
+        // Recebe o valor do input (this.value) e id do validador
+        function valida_nome(value, validador_id){
+            let validador = document.getElementById(validador_id);
+            // Se nome só tem uma parte...
+            if ( value.split(" ").length <=1 ){
+                validador.innerHTML = "Digite seu nome completo!"
+            } else { validador.innerHTML = ""; } //se não apaga msg erro 
+            
+        }//fim valida_nome
+
+        function valida_turma(value, validador_id){
+            console.log(validador_id);
+            let validador = document.getElementById(validador_id);
+            if (value.length <=3 || value.length >10){
+                validador.innerHTML = "Turma entre 3-10 caracteres!";
+            } else { validador.innerHTML = ""; }
+        }//fim valida_turma
+
+        function Checkfiles(){
+            var fup = document.getElementById('foto');
+            var fileName = fup.value;
+            var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
+
+            if (ext =="jpeg" || ext=="jpg" || ext=="png") {
+                return true;
+            }
+            else {
+                alert("Extensão não permitida!");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
