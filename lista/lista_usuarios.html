@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // Função para carregar e processar o JSON
+        async function carregarUsuarios() {
+            try {
+                const resposta = await fetch("usuarios.json"); // Busca o arquivo JSON
+                const usuarios = await resposta.json(); // Converte para objeto JavaScript
+
+                // Laço for...of para percorrer os usuários
+                for (const usuario of usuarios) {
+                    console.log(`Nome: ${usuario}, Saldo: R$${usuario}`);
+                }
+            } catch (erro) {
+                console.error("Erro ao carregar os dados:", erro);
+            }
+        }
+
+        // Chamar a função para executar
+        carregarUsuarios();
+    </script>
+</body>
+</html>

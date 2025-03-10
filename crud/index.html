@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta author="seunomecompleto">
+    <meta email="seuemail">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página JavaScript</title>
+</head>
+<body>
+
+    <form id="form">
+        <label>ID</label>
+        <input type="text" name="id" placeholder="ID" readonly disabled />
+        <br>
+        <label>Nome</label>
+        <input type="text" name="nome" placeholder="Nome" required />
+        <br>
+        <label>Idade</label>
+        <input type="number" name="idade" placeholder="Idadde" step="1" min="0" max="40" required />
+        <br>
+        <button type="submit">Salvar</button>
+    </form>
+<hr>
+    <button type="button" onclick="carregar()">Recarregar</button>
+    <table border="1"></table>
+
+    <script>
+        var registros = [{"id":1, "nome":"Baltazar Eloquêncio","idade":40}];
+        var registro = {}; //registro atual
+        
+        function gerarID(){
+            // pegar ultimo id registrado e incremetar +1
+            let lastId = 0;
+            registros.forEach((reg)=>{
+                // if de uma linha
+                lastId = reg.id > lastId ? reg.id : lastId;
+            });
+            return lastId + 1;
+        }
+
+        document.querySelectorAll("input").forEach((element) => {
+            element.addEventListener("change", (e)=>{
+                registro[e.target.name] = e.target.value;
+            });
+        });
+
+        document.querySelector("#form").addEventListener("submit", (e)=> {
+            e.preventDefault();
+            if (registro.id == undefined){
+                // novo registro atribui ID
+                registro.id = gerarID();
+            }
+            registros.push(registro);
+            alert("Registro Salvo com sucesso!");
+            limpar();
+            carregar();
+        });
+    
+        function find(id){
+            //encontra o registro por id
+            reg = 
+            registros.map((r)=>{
+                return r.id == id ? r : undefined
+            });
+        }
+
+        function editar(){
+            //resgata na tabela por id
+
+            //preenche os campos
+            document.querySelectorAll("input").forEach((element) => {
+                element.value = registro[element.name];
+            }); 
+        }
+
+        function limpar() {
+            registro = {};
+            document.querySelectorAll("input").forEach((element) => {
+                element.value = null;
+            }); 
+        }
+
+        function carregar(){
+            const table = document.querySelector("table");
+            let incremento = "<tr><th>ID</th><th>Nome</th><th>Idade</th><th></th></tr>";
+            //carrega dados
+            registros.map((reg)=>{
+                incremento += `<tr><td>${reg.id}</td><td>${reg.nome}</td><td>${reg.idade}</td><td><a href="#" onclick="editar();">Editar</a> | <a href="#">Deletar</td></tr>`;
+            });
+            table.innerHTML = incremento;
+        }
+        carregar();
+    </script>
+
+</body>
+</html>
