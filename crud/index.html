@@ -59,15 +59,16 @@
     
         function find(id){
             //encontra o registro por id
-            reg = 
+            reg = null;
             registros.map((r)=>{
-                return r.id == id ? r : undefined
+                reg = r.id == id ? r : undefined
             });
+            return reg;
         }
 
         function editar(){
             //resgata na tabela por id
-
+            reg = find()
             //preenche os campos
             document.querySelectorAll("input").forEach((element) => {
                 element.value = registro[element.name];
