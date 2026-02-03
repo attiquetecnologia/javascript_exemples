@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 01</title>
+</head>
+<body>
+    <script>
+// 01) Faça um Programa que mostre a mensagem "Alo mundo" na tela.
+console.log("Alo mundo!");
+
+// 02) Faça um Programa que peça um número e então mostre a mensagem 
+// O número informado foi [número].
+numero = prompt("Digite um número: ");
+console.log("O número informado foi ", numero);
+
+// 03) Faça um Programa que peça dois números e imprima a soma.
+numero1 = prompt("Digite um número: ");
+numero2 = prompt("Digite outro número: ");
+soma = Number(numero1) + Number(numero2);
+console.log(`A soma entre $numero1 e $numero2 `, soma);
+
+// 04) Faça um Programa que peça as 4 notas bimestrais e mostre a média.
+n1 = prompt("Nota 01: ");
+n2 = prompt("Nota 02: ");
+n3 = prompt("Nota 03: ");
+n4 = prompt("Nota 04: ");
+media = (Number(n1) + Number(n2) + Number(n3) + Number(n4))/4
+console.log(`A média entre ${n1}, ${n2}, ${n3}, ${n4} =`, media);
+
+// 05) Faça um Programa que converta metros para centímetros.
+metros = prompt("Digite uma media em metros: ");
+centimetros = Number(metros)*100
+console.log(`${metros} metros -> ${centimetros} centímetros `);
+
+// 06) Faça um Programa que peça o raio de um círculo, 
+// calcule e mostre sua área. pi*raio^2
+raio = prompt("Digite o raio do circulo: ");
+area = 3.14*Number(raio)**2;
+console.log(`A área do circulo raio de ${raio} é ${area}.`);
+
+// 07) Faça um Programa que calcule a área de um quadrado, 
+// em seguida mostre o dobro desta área para o usuário.
+lado1 = prompt("Digite um lado do quadrado: ");
+area = Number(lado1)*Number(lado1);
+console.log(`A área do quadrado de lado ${lado1} é ${area}. Dobro: ${area*2}`);
+
+// 08) Faça um Programa que pergunte quanto você ganha por 
+// hora e o número de horas trabalhadas no mês. Calcule e mostre o total do seu salário no referido mês.
+salario = prompt("Digite o salário por hora: ");
+horas = prompt("Digite o salário por hora: ");
+area = Number(lado1)*Number(lado1);
+console.log(`A área do quadrado de lado ${lado1} é ${area}. Dobro: ${area*2}`);
+
+// 09) Faça um Programa que peça a temperatura em graus Fahrenheit, 
+// transforme e mostre a temperatura em graus Celsius.
+// C = 5 * ((F-32) / 9).
+temperatura = prompt("Digite uma temperatura em Fahrenheit: ");
+celsius = 5*((Number(temperatura)-32)/9);
+console.log(`${temperatura} F -> ${celsius} celsius.`);
+
+// 10) Faça um Programa que peça a temperatura em graus Celsius, 
+// transforme e mostre em graus Fahrenheit. F = C x 1,8 + 32
+temperatura = prompt("Digite uma temperatura em Celsius: ");
+fahrenheit = Number(temperatura)*1.8+32;
+console.log(`${temperatura} Celsius -> ${fahrenheit} Fahrenheit.`);
+
+// 11) Faça um Programa que peça 2 números inteiros e um número real. 
+// Calcule e mostre:
+// 	a) o produto do dobro do primeiro com metade do segundo .
+// 	b) a soma do triplo do primeiro com o terceiro.
+// 	c) o terceiro elevado ao cubo.
+n1 = prompt("N inteiro 01: ");
+n2 = prompt("N inteiro 02: ");
+n3 = prompt("N real 03: ");
+//dobro do primeiro + a metade do segundo
+soma = Number(n1)*2 + Number(n2)/2;
+console.log(`O dobro do primeiro ${n1} mais o dobro do segundo ${n2} = ${soma}`);
+soma = Number(n1)*3 + Number(n3);
+console.log(`O triplo primeiro ${n1} mais o terceiro ${n3} = ${soma}`);
+soma = Number(n3)**3;
+console.log(`O terceiro ${n3} elevado ao cubo = ${soma}`);
+
+// 12) Tendo como dados de entrada a altura de uma pessoa, 
+// construa um algoritmo que calcule seu peso ideal, usando 
+// a seguinte fórmula: (72.7*altura) - 58
+altura = prompt("Digite sua altura: ");
+peso = (72.2*Number(altura))-58;
+console.log(`O peso ideal para altura ${altura} = ${peso}`);
+
+// 13) Tendo como dado de entrada a altura (h) de uma pessoa, 
+// construa um algoritmo que calcule seu peso ideal, 
+// utilizando as seguintes fórmulas:
+// Para homens: (72.7*h) - 58
+// Para mulheres: (62.1*h) - 44.7
+altura = prompt("Digite sua altura: ");
+peso = (72.2*Number(altura))-58;
+console.log(`O peso ideal para altura ${altura} = ${peso} - Homens`);
+peso = (62.1*Number(altura))-44.7;
+console.log(`O peso ideal para altura ${altura} = ${peso} - Mulheres`);
+
+// 14) João Papo-de-Pescador, homem de bem, comprou um microcomputador 
+// para controlar o rendimento diário de seu trabalho. 
+// Toda vez que ele traz um peso de peixes maior que o estabelecido 
+// pelo regulamento de pesca do estado de São Paulo (50 quilos) 
+// deve pagar uma multa de R$ 4,00 por quilo excedente. 
+// João precisa que você faça um programa que leia a variável peso 
+// (peso de peixes) e calcule o excesso. 
+// Gravar na variável excesso a quantidade de quilos além do 
+// limite e na variável multa o valor da multa que João deverá pagar. 
+// Imprima os dados do programa com as mensagens adequadas.
+quilos = prompt("Quantos quilos pescou: ");
+excesso = Number(quilos)-50;
+multa = excesso * 4;
+console.log(`Quilos pescado ${quilos} kg.\nExcesso ${excesso} kg.\nMulta R$ ${multa}`);
+
+// 15) Faça um Programa que pergunte quanto você ganha por hora e o número 
+// de horas trabalhadas no mês. 
+// Calcule e mostre o total do seu salário no referido mês, 
+// sabendo-se que são descontados 11% para o Imposto de Renda, 
+// 8% para o INSS e 5% para o sindicato, faça um programa que nos dê:
+// 	-salário bruto.
+// 	-quanto pagou ao INSS.
+// 	-quanto pagou ao sindicato.
+// 	-o salário líquido.
+// 	calcule os descontos e o salário líquido, conforme a tabela abaixo:
+// 	+ Salário Bruto : R$
+// 	- IR (11%) : R$
+// 	- INSS (8%) : R$
+// 	- Sindicato ( 5%) : R$
+// 	= Salário Liquido : R$
+// 	Obs.: Salário Bruto - Descontos = Salário Líquido.
+
+salario = prompt("Salario hora: ");
+horas_mes = prompt("Horas trabalhadas no mês: ");
+salario_bruto = Number(salario) * Number(horas_mes);
+irpf = salario_bruto * 0.11;
+inss = salario_bruto * 0.08;
+sindicato = salario_bruto * 0.05;
+console.log(`+ Salário Bruto : R$ ${salario_bruto}
+	- IR (11%) : R$ ${irpf}
+ 	- INSS (8%) : R$ ${inss}
+ 	- Sindicato ( 5%) : R$ ${sindicato}
+ 	= Salário Liquido : R$ ${salario_liquido}
+`);
+
+// 16) Faça um programa para uma loja de tintas. 
+// O programa deverá pedir o tamanho em metros quadrados da 
+// área a ser pintada. Considere que a cobertura da tinta 
+// é de 1 litro para cada 3 metros quadrados e que a tinta é 
+// vendida em latas de 18 litros, que custam R$ 80,00. 
+// Informe ao usuário a quantidades de latas de tinta a serem 
+// compradas e o preço total.
+area = prompt("Area total: ");
+litros = Number(area)/3;
+latas = litros/18;
+total = Math.ceil(latas*80);
+console.log(`Area total : ${area}
+	- latas : ${latas}
+ 	- valor : ${total}
+`);
+
+// 16) Faça um Programa para uma loja de tintas. 
+// O programa deverá pedir o tamanho em metros quadrados da 
+// área a ser pintada. Considere que a cobertura da tinta 
+// é de 1 litro para cada 6 metros quadrados e que a tinta 
+// é vendida em latas de 18 litros, que custam R$ 80,00 ou em 
+// galões de 3,6 litros, que custam R$ 25,00.
+area = prompt("Area total: ");
+litros = Number(area)/6;
+latas18 = litros/18;
+latas36 = litros/3.6;
+total18 = Math.ceil(latas18*80);
+total36 = Math.ceil(latas36*25);
+console.log(`Area total : ${area}
+	- latas 18l : ${latas18}
+    - latas 3,6l : ${latas36}
+ 	- Total 18l : ${total18}
+    - Total 3,6l : ${total36}
+`);
+
+// 17) Informe ao usuário as quantidades de tinta a serem compradas e os 
+// respectivos preços em 3 situações:
+// -comprar apenas latas de 18 litros;
+// -comprar apenas galões de 3,6 litros;
+// -misturar latas e galões, de forma que o desperdício de tinta seja menor.
+//  Acrescente 10% de folga e sempre arredonde os valores para cima, 
+// isto é, considere latas cheias.
+// Repetir e modificar o ultimo exercicio, é possível usar condição if se desejar
+area = prompt("Area total: ");
+litros = Number(area)/6;
+latas18 = litros/18;
+latas36 = litros/3.6;
+total18 = latas18*80;
+total36 = latas36*25;
+console.log(`Area total : ${area}
+	- latas 18l : ${latas18}
+    - latas 3,6l : ${latas36}
+ 	- valor 18l : ${total18}
+    - latas 36l : ${total36}
+`);
+
+
+// 18) Faça um programa que peça o tamanho de um arquivo para download 
+// (em MB) e a velocidade de um link de Internet (em Mbps), 
+// calcule e informe o tempo aproximado de download do arquivo 
+// usando este link (em minutos).
+arquivo = prompt("Tamanho arquivo em megabytes: ");
+velocidade = prompt("Velocidade do link: ");
+arquivo_bits = Number(arquivo) * 8;
+tempo = arquivo_bits/velocidade;
+
+console.log(`Tamanho do arquivo : ${arquivo} MB
+	- Link : ${velocidade} Mbps
+    - Tempo para download : ${tempo} s
+`);
+</script>
+</body>
+</html>
