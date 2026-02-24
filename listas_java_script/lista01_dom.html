@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiro Exercicio</title>
+</head>
+<body>
+    <h1 id="titulo">Qualquer coisa!</h1>
+    <button id="btn-meclica" onclick="me_clica()">Me Clica!</button>
+    <hr>
+    <h1 id="mensagem"></h1>
+
+    <hr>
+    <h3>Exercício 02</h3>
+    <p>02) Faça um Programa que peça um número e então mostre a mensagem 
+        O número informado foi [número].</p>
+    <input type="number" id="txt-numero" />
+    <p style="color: red;" id="msg-exec02"></p>
+    <button id="btn-salvar-exec02" onclick="exec_02()">Salvar</button>
+    
+    <script>
+        function me_clica(){
+            // altera valor da tag H1
+            document.getElementById("titulo").
+                innerHTML = "Primeira Página!";
+
+            // cria uma TAG de parágrafo na memória
+            const p = document.createElement("p");
+            // atribui um valor para a nova tag
+            p.innerHTML = "Qualquer coisa aleatória";
+            // adiciona a nova tag na página logo após a última
+            document.body.appendChild(p);
+            // altera o valor do botão me clica
+            document.getElementById("btn-meclica").innerHTML = "Amiga!";
+        }//fim me clica
+        
+        function alomundo(){
+            document.getElementById("mensagem").innerHTML = "Alô Mundo!";
+        } // fim alomundo
+        alomundo(); // chama o alo mundo sem clicar
+        
+        /* Rotina que chama exercício 02 */
+        function exec_02(){
+            // recupera valor do input
+            numero = document.getElementById("txt-numero").value;
+            // exibe mensagem dentro da tag p definida
+            document.getElementById("msg-exec02")
+                .innerHTML = "O número informado foi " + numero;
+        }//fim exec_02
+
+        // criar outras funções aqui
+    </script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 02 JavaScript</title>
+</head>
+<body>
+<script>
+// 01) Faça um Programa que peça dois números e imprima o maior deles.
+n1 = prompt("N inteiro 01: ");
+n2 = prompt("N inteiro 02: ");
+console.log(`O maior número entre ${n1} e ${n2} é ${Math.max(n1,n2)}`);
+
+// 02) Faça um Programa que peça um valor e mostre na tela se o 
+// valor é positivo ou negativo.
+n1 = prompt("N inteiro 01: ");
+console.log(`O número ${n1} é ${n1>=0 ? 'positivo' : 'negativo'}`);
+
+// 03) Faça um Programa que verifique se uma letra digitada é 
+// "F" ou "M". Conforme a letra escrever: 
+// F - Feminino, M - Masculino, Sexo Inválido.
+valor = prompt("Digite uma letra: ");
+if (valor=='M'){
+    console.log(`Masculino`);
+} else if (valor=='F'){
+    console.log(`Feminino`);
+} else {
+    console.log('Sexo Inválido');
+}
+
+// 04) Faça um Programa que verifique se uma letra digitada é vogal 
+// ou consoante.
+valor = prompt("Digite uma letra: ");
+vogais = ['a', 'e', 'i', 'o','u'];
+console.log(`A letra ${valor} é uma ${vogais.includes(valor) ? 'VOGAL' : 'CONSOANTE'}`);
+
+// 05) Faça um programa para a leitura de duas notas parciais de um aluno. 
+// O programa deve calcular a média alcançada por aluno e apresentar:
+// 06) A mensagem "Aprovado", se a média alcançada for maior ou igual a sete;
+// 07) A mensagem "Reprovado", se a média for menor do que sete;
+// 08) A mensagem "Aprovado com Distinção", se a média for igual a dez.
+n1 = prompt("Nota 01: ");
+n2 = prompt("Nota 02: ");
+media = Number(n1) + Number(n2);
+console.log(`Média alcançada ${media}`);
+if (media == 10) {
+    console.log(`Aprovado com Distinção!`);
+} else if (media >= 7) {
+    console.log(`Aprovado!`);
+} else {
+    console.log(`Reprovado!`);
+}
+// 09) Faça um Programa que leia três números e mostre o maior deles.
+n1 = prompt("Nota 01: ");
+n2 = prompt("Nota 02: ");
+n3 = prompt("Nota 03: ");
+//Uso do Math.max é mais eficiente do que testar todas
+console.log(`O maior número dentre os três é ${Math.max(n1,n2,n3)}!`);
+
+// 10) Faça um Programa que leia três números e mostre o maior e o 
+// menor deles.
+n1 = prompt("Nota 01: ");
+n2 = prompt("Nota 02: ");
+n3 = prompt("Nota 03: ");
+//Uso do Math.max é mais eficiente do que testar todas
+console.log(`O maior número dentre os três é ${Math.max(n1,n2,n3)} 
+e o menor é ${Math.min(n1,n2,n3)}!`);
+
+// 11) Faça um programa que pergunte o preço de três produtos e informe qual produto 
+// você deve comprar, sabendo que a decisão é sempre pelo mais barato.
+n1 = prompt("Preço 01: ");
+n2 = prompt("Preço 02: ");
+n3 = prompt("Preço 03: ");
+//Uso do Math.max é mais eficiente do que testar todas
+console.log(`O mais barato é ${Math.min(n1,n2,n3)}!`);
+
+// 12) Faça um Programa que leia três números e mostre-os em ordem decrescente.
+n1 = prompt("Nr 01: ");
+n2 = prompt("Nr 02: ");
+n3 = prompt("Nr 03: ");
+//uso do if else ou array
+menor = Math.min(n1,n2,n3);
+maior = Math.max(n1,n2,n3);
+console.log(menor);
+if (n1!=menor && n1 != maior) {
+    // se n1 não é maior e nem menor então é o do meio
+    console.log(n1);
+} else if (n2!=menor && n2 != maior) {
+    console.log(n2);
+} else {
+    console.log(n3);
+}
+console.log(maior);
+
+// 13) Faça um Programa que pergunte em que turno você estuda. 
+// Peça para digitar M-matutino ou V-Vespertino ou N- Noturno. 
+// Imprima a mensagem "Bom Dia!", "Boa Noite") 
+// Tarde!" ou "Boa Noite!" ou "Valor Inválido!", conforme o caso.
+turno = prompt("Em que turno você estuda?\nM-matutino ou V-Vespertino ou N- Noturno");
+if (turno == 'N'){
+    console.log("Boa noite!");
+} else if (turno == 'M') {
+    console.log("Bom dia!");
+} else if (turno == 'T'){
+    console.log("Boa tarde!");
+} else {
+    console.log("Valor inválido!");
+}
+
+// 15) As Organizações Tabajara resolveram dar um aumento de salário 
+// aos seus colaboradores e lhe contraram para desenvolver o programa que 
+// calculará os reajustes.
+// 16) Faça um programa que recebe o salário de um colaborador e o reajuste segundo o seguinte critério, baseado no salário atual:
+// 	-salários até R$ 280,00 (incluindo) : aumento de 20%
+// 	-salários entre R$ 280,00 e R$ 700,00 : aumento de 15%
+// 	-salários entre R$ 700,00 e R$ 1500,00 : aumento de 10%
+// 	-salários de R$ 1500,00 em diante : aumento de 5% Após o aumento ser realizado, informe na tela:
+// 	-o salário antes do reajuste;
+// 	-o percentual de aumento aplicado;
+// 	-o valor do aumento;
+// 	-o novo salário, após o aumento.
+salario = Number(prompt("Salário:"));
+novo_salario = 0;
+percentual = 0;
+aumento = 0;
+if (salario <= 280) {
+    percentual = 0.2;
+    novo_salario = salario * percentual;
+    aumento = novo_salario - salario;
+}
+console.log(`
+Salário anterior ${salario}.\n
+Percentual ${percentual}.\nAumento ${aumento}`)
+
+// 17) Faça um programa para o cálculo de uma folha de pagamento, sabendo que os descontos são do Imposto de Renda, que depende do salário bruto (conforme tabela abaixo) e 3% para o Sindicato e que o FGTS corresponde a 11% do Salário Bruto, mas não é descontado (é a empresa que deposita). O Salário Líquido corresponde ao Salário Bruto menos os descontos. O programa deverá pedir ao usuário o valor da sua hora e a quantidade de horas trabalhadas no mês.
+// Desconto do IR:
+// -Salário Bruto até 900 (inclusive) - isento
+// -Salário Bruto até 1500 (inclusive) - desconto de 5%
+// -Salário Bruto até 2500 (inclusive) - desconto de 10%
+// -Salário Bruto acima de 2500 - desconto de 20% Imprima na tela as informações, dispostas conforme o exemplo abaixo. No exemplo o valor da hora é 5 e a quantidade de hora é 220.
+//     Salário Bruto: (5 * 220)        : R$ 1100,00
+//     (-) IR (5%)                     : R$   55,00  
+//     (-) INSS ( 10%)                 : R$  110,00
+//     FGTS (11%)                      : R$  121,00
+//     Total de descontos              : R$  165,00
+//     Salário Liquido                 : R$  935,00
+
+
+// 23) Faça um Programa que peça uma data no formato dd/mm/aaaa e 
+// determine se a mesma é uma data válida.
+data_dia = prompt("Digite uma data no formato dd/mm/aaaa.")
+//quebrar com split
+dias = data_dia.split('/');
+dia = dias[0];
+mes = dias[1];
+ano = dias[2];
+// validar com if else
+
+</script>
+</body>
+</html>
