@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 01 - Exercício 15</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <style>
+        .resultado { font-weight: bold;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista 01 - Exercício 15</h1>
+        <p>15) Faça um Programa que pergunte quanto você ganha por hora e o número de horas trabalhadas no mês. 
+            <br>Calcule e mostre o total do seu salário no referido mês, sabendo-se que são descontados <strong>11% para o Imposto de Renda</strong>, <strong style="color: blue;">8% para o INSS</strong> e <strong>5% para o sindicato</strong>, faça um programa que nos dê:
+        </p>
+        <div class="form"> <!-- substituir por form-->
+            <div class="mb-3">
+                <label for="salarioHora" class="form-label">Salário por Hora</label>
+                <input type="number" class="form-control" id="salarioHora" aria-describedby="salarioHelp">
+                <div id="salarioHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="horasTrabalhadas" class="form-label">Horas Trabalhadas no mês</label>
+                <input type="number" class="form-control" id="horasTrabalhadas" aria-describedby="horasHelp">
+                <div id="horasHelp" class="form-text">We'll never share your email with anyone else.</div>
+
+            </div>
+            <button class="btn btn-primary" onclick="calcular();">Calcular</button>
+        </div>
+        <hr>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td colspan="2"><h3>Resultados</h3></td>
+                </tr>
+            </thead>
+            <tr>
+                <td>+ Salário Bruto:</td><td id="msg-salario" class="resultado">R$</td>
+            </tr>
+            <tr>
+                <td>- IR (11%): </td><td id="msg-imposto_renda" class="resultado">R$</td>
+            </tr>
+            <tr>
+                <td>- INSS (8%):</td><td id="msg-inss" class="resultado">R$</td>
+            </tr>    
+            <tr>
+                <td>- Sindicato ( 5%):</td><td id="msg-sindicato" class="resultado">R$</td>
+            </tr>    
+            <tr>
+                <td>= Salário Liquido:</td><td id="msg-liquido" class="resultado">R$</td>
+            </tr>
+        </table> 
+        <p style="color: red;">Obs.: Salário Bruto - Descontos = Salário Líquido.</p>       
+    </div>
+    
+    <script>
+        function calcular(){
+            const salario_hora = document.getElementById("salarioHora").value;
+            const horas_trabalhadas = document.getElementById("horasTrabalhadas").value;
+            const salario_bruto = salario_hora * horas_trabalhadas;
+            const imposto_renda = salario_bruto * 0.11;
+            const inss = salario_bruto * 0.08;
+            const sindicato = salario_bruto * 0.05;
+            const salario_liquido = salario_bruto - imposto_renda - inss - sindicato;
+
+            document.getElementById("msg-salario").innerHTML = "R$ " + salario_bruto;
+            document.getElementById("msg-imposto_renda").innerHTML = "R$ " + imposto_renda;
+            document.getElementById("msg-inss").innerHTML = "R$ " + inss;
+            document.getElementById("msg-sindicato").innerHTML = "R$ " + sindicato;
+            document.getElementById("msg-liquido").innerHTML = "R$ " + salario_liquido;
+        }
+    </script>
+</body>
+</html>
