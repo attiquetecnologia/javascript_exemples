@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro de Endereços</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  </head>
+  <body>
+    
+    <div class="container">
+        <h1>Cadastro de Endereços</h1>
+        <form>
+            <div class="mb-3">
+                <label for="cep" class="form-label">CEP <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="cep" aria-describedby="cepHelp" required>
+                <div id="cepHelp" class="form-text text-danger">CEP Inválido!</div>
+            </div>
+            <div class="mb-3">
+                <label for="endereco" class="form-label">Endereço <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="endereco" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="numero" class="form-label">Número <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="numero" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="complemento" class="form-label">Complemento</label>
+                <input type="text" class="form-control" id="complemento">
+            </div>
+
+            <div class="mb-3">
+                <label for="bairro" class="form-label">Bairro <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="bairro" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="cidade" class="form-label">Cidade <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="cidade" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="estado" class="form-label">Estado <span class="text-danger">*</span></label>
+                <select class="form-control" id="estado">
+                    <option>Selecione um Estado</option>
+                    <option>SP</option>
+                    <option>MG</option>
+                    <option>GO</option>
+                    <option>RJ</option>
+                    <option>ES</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
+
+        </form>
+    </div><!-- fim container -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    
+    <script>
+        //Lista de Endereços
+        var enderecos = [
+            {
+                "cep":"63091-719",		
+                "endereco":"489 E Main",		
+                "bairro":"Douglas Meadows",		
+                "cidade":"Kleinfield",		
+                "estado":"Ohio"		
+            },
+            {
+                "cep":"12186-751",		
+                "endereco":"1905 E 6th Avenue",		
+                "bairro":"VonRueden Brooks",		
+                "cidade":"Stehrfurt",		
+                "estado":"Oregon"		
+            },
+            {
+                "cep":"82472-360",		
+                "endereco":"895 Justice Inlet",		
+                "bairro":"Willow Drive",		
+                "cidade":"East Magnoliaborough",		
+                "estado":"Delaware"		
+            },
+            {
+                "cep":"47501-591",		
+                "endereco":"3741 Ledner Center",		
+                "bairro":"Sporer Estate",		
+                "cidade":"Wileycester",		
+                "estado":"Washington"		
+            },
+            {
+                "cep":"95541-069",		
+                "endereco":"7284 Gerson Common",		
+                "bairro":"Church Avenue",		
+                "cidade":"South Santina",		
+                "estado":"Virginia"		
+            },
+            {
+                "cep":"75345-108",		
+                "endereco":"159 Estefania Common",		
+                "bairro":"Mozelle Rue",		
+                "cidade":"Waldorf",		
+                "estado":"New Mexico"		
+            },
+            {
+                "cep":"84901-211",		
+                "endereco":"6618 Sipes Ridges",		
+                "bairro":"Seamus Spurs",		
+                "cidade":"Kirstinhaven",		
+                "estado":"Virginia"		
+            },
+            {
+                "cep":"41814-767",		
+                "endereco":"2707 W 10th Street",		
+                "bairro":"Jakayla Plains",		
+                "cidade":"Kenosha",		
+                "estado":"Mississippi"		
+            },
+            {
+                "cep":"76910-776",		
+                "endereco":"497 Brekke Ridges",		
+                "bairro":"Dibbert Fall",		
+                "cidade":"DeSoto",		
+                "estado":"Rhode Island"		
+            },
+            {
+                "cep":"74789-865",		
+                "endereco":"258 Jedediah Path",		
+                "bairro":"Howell Glen",		
+                "cidade":"Mansfield",		
+                "estado":"Louisiana"		
+            }
+        ]
+
+        function get_cep(cep){
+            // recebe um cep e devolve um objeto endereço
+            for (endereco of enderecos) {
+                if (endereco.cep === cep) {
+                    return endereco;
+                }
+            }//fim for
+        }//fim função
+
+    </script>
+
+    </body>
+</html>
