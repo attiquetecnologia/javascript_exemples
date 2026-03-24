@@ -13,7 +13,7 @@
         <form>
             <div class="mb-3">
                 <label for="cep" class="form-label">CEP <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="cep" aria-describedby="cepHelp" required>
+                <input type="text" class="form-control" id="cep" aria-describedby="cepHelp"  onkeyup="busca_cep(this.value)" required>
                 <div id="cepHelp" class="form-text text-danger">CEP Inválido!</div>
             </div>
             <div class="mb-3">
@@ -144,7 +144,26 @@
                     return endereco;
                 }
             }//fim for
+            return None // nenhum cep encontrado
         }//fim função
+
+        function busca_cep(cep){
+            console.log(cep);
+            // usa a função de busca para resgatar o cep digitado
+            //this.value representa uma instância de objeto no evento
+            //use document para isso
+            const endereco = get_cep(cep) // resgata o cep numa constante
+            if (endereco!=null) { //se encontrou endereco?
+                //use document com queryselector
+                document.querySelector("#endereco").value = endereco.endereco;
+                document.querySelector("#bairro").value = endereco.bairro;
+                document.querySelector("#cidade").value = endereco.cidade;
+                document.querySelector("#estado").value = endereco.estado;
+            } else {
+                document.querySelector("#cepHelp").innerHTML = "Cep não encontrado"
+            }
+        
+        }//fim busca cep
 
     </script>
 
